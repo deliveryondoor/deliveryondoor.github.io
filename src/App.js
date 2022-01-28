@@ -25,6 +25,7 @@ function App() {
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
 
+
     useEffect(() => {
         const scriptURL = process.env.REACT_APP_API_URL
         const form = document.forms['google-sheet']
@@ -33,11 +34,20 @@ function App() {
             form.addEventListener('submit', e => {
                 e.preventDefault()
                 fetch(scriptURL, {method: 'POST', body: new FormData(form)})
-                    .then(response => alert("Thank You! We Will Contact You Soon..."))
+                    .then(response => handleClose2())
                     .catch(error => console.error('Error!', error.message))
             })
         }
     })
+
+    function disBtn(){
+        var btn = document.getElementById('orderBtn');
+        btn.disabled = true;
+    }
+
+    function disableButton() {
+        setTimeout(disBtn,100)
+    }
 
     return (
         <div>
@@ -79,7 +89,7 @@ function App() {
                                 <input type="number" name="Phone1" className="form-control form-group" placeholder="Contact Number 1*" required=""/>
                                 <input type="number" name="Phone2" className="form-control form-group" placeholder="Contact Number 2*" required=""/>
                                 <input id="datePicker" type="date" className="form-control form-group" name="Date" defaultValue={date}/>
-                                <input type="submit" name="submit" className="btn btn-primary order-btn" value="Order Now"/>
+                                <input id="orderBtn" type="submit" name="submit" className="btn btn-primary order-btn" onClick={disableButton} value="Order Now"/>
                             </form>
                         </Modal.Body>
                     </Modal>
