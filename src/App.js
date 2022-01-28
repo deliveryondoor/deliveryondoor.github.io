@@ -8,8 +8,6 @@ import {useEffect, useState} from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCalendarCheck,faMapMarkedAlt,faEnvelope,faPhone} from '@fortawesome/free-solid-svg-icons'
 
-AOS.init();
-
 function App() {
 
     var curr = new Date();
@@ -27,6 +25,11 @@ function App() {
 
 
     useEffect(() => {
+
+        AOS.init({
+            duration : 2000
+        });
+
         const scriptURL = process.env.REACT_APP_API_URL
         const form = document.forms['google-sheet']
 
