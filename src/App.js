@@ -46,7 +46,7 @@ function App() {
                 <Navbar bg="light" expand="lg">
                     <Container>
                         <img class="logo-brand" src={logo} alt="logo"/>
-                        <Button onClick={handleShow1} data-aos="zoom-in" data-aos-delay="2000" variant="info" class="contact">Contact Us.</Button>{' '}
+                        <Button onClick={handleShow1} data-aos="zoom-in" data-aos-delay="2000" variant="info" id="contact" >Contact Us.</Button>{' '}
                     </Container>
                 </Navbar>
 
@@ -79,7 +79,7 @@ function App() {
                                 <input type="number" name="Phone1" className="form-control form-group" placeholder="Contact Number 1*" required=""/>
                                 <input type="number" name="Phone2" className="form-control form-group" placeholder="Contact Number 2*" required=""/>
                                 <input id="datePicker" type="date" className="form-control form-group" name="Date" defaultValue={date}/>
-                                <input type="submit" name="submit"  className="btn btn-primary order-btn" value="Order Now"/>
+                                <input type="submit" name="submit" className="btn btn-primary order-btn" value="Order Now"/>
                             </form>
                         </Modal.Body>
                     </Modal>

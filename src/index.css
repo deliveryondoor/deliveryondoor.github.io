@@ -18,6 +18,13 @@
   margin-left: 7%;
 }
 
+@media (max-width: 600px){
+  .logo-brand {
+    height: 5vh;
+    margin-left: 3%;
+  }
+}
+
 .brand-line {
   display: inline-block;
   color: #0198FC;
@@ -28,9 +35,22 @@
   margin-bottom: 0;
 }
 
-.contact {
+#contact {
   margin-right: 2%;
   margin-top: 1%;
+}
+
+.tick1{
+  color: #0198FC;
+  margin: 0 2%;
+}
+
+@media (max-width: 600px){
+  #contact {
+    padding:2px 4px;
+    font-size:80%;
+    line-height: 1;
+  }
 }
 
 .modal-para {
@@ -53,12 +73,23 @@
   color: #0198FC;
 }
 
-.tick1{
-  color: #0198FC;
-  margin: 0 2%;
-}
 .tick2{
   color: green;
+}
+
+
+@media (max-width: 600px){
+  .tag{
+    margin-top: 25%;
+  }
+  .tag p {
+    margin-top: 7%;
+    margin-left: 50%;
+    font-size: 15px;
+  }
+  .tag button{
+    margin-left: 55%;
+  }
 }
 
 .form-group {
