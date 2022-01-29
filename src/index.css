@@ -13,6 +13,12 @@
   position: relative;
 }
 
+@media (max-width: 600px){
+  .home{
+    background-image: url(./images/bg1.jpg);
+  }
+}
+
 .logo-brand {
   height: 10vh;
   margin-left: 7%;
@@ -20,8 +26,8 @@
 
 @media (max-width: 600px){
   .logo-brand {
-    height: 5vh;
-    margin-left: 3%;
+    height: 7vh;
+    margin-left: 2%;
   }
 }
 
@@ -88,7 +94,7 @@
     font-size: 15px;
   }
   .tag button{
-    margin-left: 55%;
+    margin-left: 50%;
   }
 }
 
