@@ -62,7 +62,7 @@ function App() {
 
                 e.preventDefault()
 
-                if (name != "" && address != "" && landmark != "" && ward != "" && phone1 != "" && phone2 != "") {
+                if (name !== "" && address !== "" && landmark !== "" && ward !== "" && phone1 !== "" && phone2 !== "") {
                     fetch(scriptURL, {method: 'POST', body: new FormData(form)})
                         .then(response => {
                             handleClose2();
