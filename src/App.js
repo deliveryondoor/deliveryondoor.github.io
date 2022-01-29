@@ -58,11 +58,10 @@ function App() {
                 const landmark = document.getElementById("landmark").value
                 const ward = document.getElementById("ward").value
                 const phone1 = document.getElementById("phone1").value
-                const phone2 = document.getElementById("phone2").value
 
                 e.preventDefault()
 
-                if (name !== "" && address !== "" && landmark !== "" && ward !== "" && phone1 !== "" && phone2 !== "") {
+                if (name !== "" && address !== "" && landmark !== "" && ward !== "" && phone1 !== "") {
                     fetch(scriptURL, {method: 'POST', body: new FormData(form)})
                         .then(response => {
                             handleClose2();
@@ -133,8 +132,8 @@ function App() {
                                        placeholder="Ward Number *" required/>
                                 <input id="phone1" type="number" name="Phone1" className="form-control form-group"
                                        placeholder="Contact Number 1*" required/>
-                                <input id="phone2" type="number" name="Phone2" className="form-control form-group"
-                                       placeholder="Contact Number 2*" required/>
+                                <input type="number" name="Phone2" className="form-control form-group"
+                                       placeholder="Contact Number 2*"/>
                                 <input id="datePicker" type="date" className="form-control form-group" name="Date"
                                        defaultValue={date}/>
                                 <input id="orderBtn" type="submit" name="submit" className="btn btn-primary order-btn"
