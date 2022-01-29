@@ -133,7 +133,7 @@ function App() {
                                 <input id="phone1" type="number" name="Phone1" className="form-control form-group"
                                        placeholder="Contact Number 1*" required/>
                                 <input type="number" name="Phone2" className="form-control form-group"
-                                       placeholder="Contact Number 2*"/>
+                                       placeholder="Contact Number 2"/>
                                 <input id="datePicker" type="date" className="form-control form-group" name="Date"
                                        defaultValue={date}/>
                                 <input id="orderBtn" type="submit" name="submit" className="btn btn-primary order-btn"
