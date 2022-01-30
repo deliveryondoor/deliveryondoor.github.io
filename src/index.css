@@ -4,21 +4,11 @@
   font-family: sans-serif;
 }
 
-.home {
-  height: 100vh;
-  width: 100%;
-  background-image: url(./images/bg.jpg);
-  background-position: center;
-  background-size: cover;
-  position: relative;
+.btn {
+  color: white;
 }
 
-@media (max-width: 600px){
-  .home{
-    background-image: url(./images/bg1.jpg);
-  }
-}
-
+/*Navbar*/
 .logo-brand {
   height: 10vh;
   margin-left: 7%;
@@ -41,8 +31,8 @@
   margin-bottom: 0;
 }
 
-#contact {
-  margin-right: 2%;
+/*Contact Button*/
+.contact-btn {
   margin-top: 1%;
 }
 
@@ -52,10 +42,9 @@
 }
 
 @media (max-width: 600px){
-  #contact {
+  .contact-btn {
     padding:2px 4px;
     font-size:80%;
-    line-height: 1;
   }
 }
 
@@ -65,10 +54,23 @@
   margin-left: 5%;
 }
 
-.btn {
-  color: white;
+/*Home*/
+.home {
+  height: 100vh;
+  width: 100%;
+  background-image: url(./images/bg.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
 }
 
+@media (max-width: 600px){
+  .home{
+    background-image: url(./images/bg1.jpg);
+  }
+}
+
+/*Homepage Paragraphs*/
 .tag {
   position: absolute;
   right: 3%;
@@ -83,6 +85,17 @@
   color: green;
 }
 
+/*Help*/
+.tag .help-btn{
+  margin-left: 2%;
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
+.video-frame{
+  width : 100%;
+  height: 50vh;
+}
 
 @media (max-width: 600px){
   .tag{
@@ -90,14 +103,17 @@
   }
   .tag p {
     margin-top: 7%;
-    margin-left: 50%;
-    font-size: 15px;
+    margin-left: 45%;
+    font-size: 14px;
   }
   .tag button{
-    margin-left: 50%;
+    margin-left: 45%;
+    padding:5px 4px;
+    font-size:80%;
   }
 }
 
+/*Order Form*/
 .form-group {
   margin-bottom: 2%;
 }
@@ -119,4 +135,8 @@ textarea {
 
 #datePicker{
   display: none;
+}
+
+.order-ack{
+  margin: 0 1% 1% 1%;
 }
