@@ -58,10 +58,11 @@ function App() {
                 const landmark = document.getElementById("landmark").value
                 const ward = document.getElementById("ward").value
                 const phone1 = document.getElementById("phone1").value
+                const items = document.getElementById("items").value
 
                 e.preventDefault()
 
-                if (name !== "" && address !== "" && landmark !== "" && ward !== "" && phone1 !== "") {
+                if (name !== "" && address !== "" && landmark !== "" && ward !== "" && phone1 !== "" && items !== "") {
                     fetch(scriptURL, {method: 'POST', body: new FormData(form)})
                         .then(response => {
                             handleClose2();
@@ -122,22 +123,15 @@ function App() {
                         <Modal.Header closeButton> Enter Your Details</Modal.Header>
                         <Modal.Body>
                             <form id="form" name="google-sheet">
-                                <input id="name" type="text" name="Name" className="form-control form-group"
-                                       placeholder="Full Name *" required/>
-                                <input id="address" type="text" name="Address" className="form-control form-group"
-                                       placeholder="Address *" required/>
-                                <input id="landmark" type="text" name="Landmark" className="form-control form-group"
-                                       placeholder="Landmark *" required/>
-                                <input id="ward" type="number" name="Ward" className="form-control form-group"
-                                       placeholder="Ward Number *" required/>
-                                <input id="phone1" type="number" name="Phone1" className="form-control form-group"
-                                       placeholder="Contact Number 1*" required/>
-                                <input type="number" name="Phone2" className="form-control form-group"
-                                       placeholder="Contact Number 2"/>
-                                <input id="datePicker" type="date" className="form-control form-group" name="Date"
-                                       defaultValue={date}/>
-                                <input id="orderBtn" type="submit" name="submit" className="btn btn-primary order-btn"
-                                       onClick={disableButton} value="Order Now"/>
+                                <input id="name" type="text" name="Name" className="form-control form-group" placeholder="Full Name *" required/>
+                                <input id="address" type="text" name="Address" className="form-control form-group" placeholder="Address *" required/>
+                                <input id="landmark" type="text" name="Landmark" className="form-control form-group" placeholder="Landmark *" required/>
+                                <input id="ward" type="number" name="Ward" className="form-control form-group" placeholder="Ward Number *" required/>
+                                <input id="phone1" type="number" name="Phone1" className="form-control form-group" placeholder="Contact Number 1*" required/>
+                                <input type="number" name="Phone2" className="form-control form-group" placeholder="Contact Number 2"/>
+                                <textarea id="items" name="Item"  className="form-control form-group" rows="3" placeholder="Enter items to be ordered..." required />
+                                <input id="datePicker" type="date" className="form-control form-group" name="Date" defaultValue={date}/>
+                                <input id="orderBtn" type="submit" name="submit" className="btn btn-primary order-btn" onClick={disableButton} value="Order Now"/>
                             </form>
                         </Modal.Body>
                     </Modal>
