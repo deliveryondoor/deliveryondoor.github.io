@@ -14,6 +14,8 @@ function App() {
     curr.setDate(curr.getDate());
     var date = curr.toISOString().substr(0, 10);
 
+    console.log(date)
+
     const [show1, setShow1] = useState(false);
     const [show2, setShow2] = useState(false);
     const [show3, setShow3] = useState(false);
@@ -78,6 +80,23 @@ function App() {
         }
     })
 
+    //bullets
+    let previousLength = 0;
+    const handleInput = (event) => {
+        const bullet = "\u2022";
+        const newLength = event.target.value.length;
+        const characterCode = event.target.value.substr(-1).charCodeAt(0);
+
+        if (newLength > previousLength) {
+            if (characterCode === 10) {
+                event.target.value = `${event.target.value}${bullet} `;
+            } else if (newLength === 1) {
+                event.target.value = `${bullet} ${event.target.value}`;
+            }
+        }
+        previousLength = newLength;
+    }
+
     return (
         <div>
             <div data-aos="fade-right" className="home">
@@ -131,12 +150,12 @@ function App() {
                                        placeholder="Landmark *" required/>
                                 <input id="ward" type="number" name="Ward" className="form-control form-group"
                                        placeholder="Ward Number *" required/>
-                                <input id="phone1" type="number" name="Phone1" className="form-control form-group"
-                                       placeholder="Contact Number 1*" required/>
-                                <input type="number" name="Phone2" className="form-control form-group"
-                                       placeholder="Contact Number 2"/>
-                                <textarea id="items" name="Item" className="form-control form-group" rows="3"
-                                          placeholder="Enter items to be ordered..." required/>
+                                <input id="phone1" type="text" name="Phone1" className="form-control form-group"
+                                       placeholder="Contact Number 1*" required title="Enter a valid phone number." pattern="[6-9]{1}[0-9]{9}" />
+                                <input type="text" name="Phone2" className="form-control form-group"
+                                       placeholder="Contact Number 2" title="Enter a valid phone number." pattern="[6-9]{1}[0-9]{9}" />
+                                <textarea id="items" name="Item" className="form-control form-group" rows="5"
+                                          placeholder="Enter items to be ordered...&#10;1kg Sugar&#10;500gm Dal&#10;1 small packet Sauce" required onInput={handleInput} />
                                 <input id="datePicker" type="date" className="form-control form-group" name="Date"
                                        defaultValue={date}/>
                                 <input id="orderBtn" type="submit" name="submit" className="btn btn-primary order-btn"
