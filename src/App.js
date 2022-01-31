@@ -11,7 +11,7 @@ import {faCalendarCheck, faMapMarkedAlt, faEnvelope, faPhone} from '@fortawesome
 function App() {
 
     var curr = new Date();
-    curr.setDate(curr.getDate() + 3);
+    curr.setDate(curr.getDate());
     var date = curr.toISOString().substr(0, 10);
 
     const [show1, setShow1] = useState(false);
