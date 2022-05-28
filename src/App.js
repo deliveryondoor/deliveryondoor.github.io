@@ -14,12 +14,11 @@ function App() {
     curr.setDate(curr.getDate());
     var date = curr.toISOString().substr(0, 10);
 
-    console.log(date)
-
     const [show1, setShow1] = useState(false);
     const [show2, setShow2] = useState(false);
     const [show3, setShow3] = useState(false);
     const [show4, setShow4] = useState(false);
+    const [disableBtn, setDisableBtn] = useState(false);
 
     const handleShow1 = () => setShow1(true);
     const handleClose1 = () => setShow1(false);
@@ -35,23 +34,19 @@ function App() {
 
     function disableButton() {
         setTimeout(() => {
-            var btn = document.getElementById('orderBtn');
-            if (btn) {
-                btn.disabled = true;
-            }
+            setDisableBtn(true);
         }, 50)
         setTimeout(enableButton, 4000);
     }
 
     function enableButton() {
-        var btn = document.getElementById('orderBtn');
-        btn.disabled = false;
+        setDisableBtn(false);
     }
 
     useEffect(() => {
-
         AOS.init({
-            duration: 2000
+            duration: 2000,
+            once : true
         });
 
         const scriptURL = process.env.REACT_APP_API_URL
@@ -158,16 +153,16 @@ function App() {
                                           placeholder="Enter items to be ordered...&#10;1kg Sugar&#10;500gm Dal&#10;1 small packet Sauce" required onInput={handleInput} />
                                 <input id="datePicker" type="date" className="form-control form-group" name="Date"
                                        defaultValue={date}/>
-                                <input id="orderBtn" type="submit" name="submit" className="btn btn-primary order-btn"
-                                       onClick={disableButton} value="Order Now"/>
+                                <button disabled={disableBtn} id="orderBtn" type="submit" name="submit" className="btn btn-primary order-btn"
+                                       onClick={disableButton} value="Order Now">Order Now</button>
                             </form>
                         </Modal.Body>
                     </Modal>
 
                     <Modal size="sm" centered show={show3} onHide={handleClose3}>
                         <Modal.Body>
-                            <p style={{marginBottom:0}}>
-                                <center>We will deliver your product soon.<br/> Thank You!</center>
+                            <p style={{marginBottom:0, textAlign:"center"}}>
+                                We will deliver your product soon.<br/> Thank You!
                             </p>
                         </Modal.Body>
                         <Button className="order-ack" variant="success" onClick={handleClose3}>
